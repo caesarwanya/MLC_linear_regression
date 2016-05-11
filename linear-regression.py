@@ -27,7 +27,8 @@ alpha = 0.01
 change = 1.0
 steps = 0
 
-while change > 0.00001:
+#while change > 0.00001:
+for k in range(300000):
 
     change = 0.0
     steps += 1
