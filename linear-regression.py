@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 ## define training data
 #X = np.array([[1.0,2104.0,5.0,1.0,45.0],[1.0,1416.0,3.0,2.0,40.0],[1.0,1534.0,3.0,2.0,30.0],[1.0,852.0,2.0,1.0,36.0]])
@@ -23,12 +24,13 @@ m = len(X)
 n = len(X[0])
 th = np.zeros(n)
 
-alpha = 0.01
+alpha = 0.3
 change = 1.0
+achange = 1.0
 steps = 0
 
-#while change > 0.00001:
-for k in range(300000):
+while achange > 0.0001:
+#for k in range(300000):
 
     change = 0.0
     steps += 1
@@ -43,6 +45,7 @@ for k in range(300000):
             change += new_theta - theta
             th[j] = new_theta
 
+    achange = math.fabs(change)
     print(steps,change)
 
 # normalized equation
